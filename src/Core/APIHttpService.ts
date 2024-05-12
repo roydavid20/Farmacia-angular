@@ -39,7 +39,7 @@ export class APIHttpService {
   }
 
   getProveedores(): Observable<Proveedor[]> {
-    return this.http.get<Proveedor[]>(`${this.baseUrl}/api/proveedores`);
+    return this.http.get<Proveedor[]>(`http://localhost:7070/api/proveedores`);
   }
 
   getProveedorById(proveedorId: number): Observable<Proveedor> {
