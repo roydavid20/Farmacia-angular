@@ -1,0 +1,37 @@
+<!-- proveedores.component.html -->
+<div class="container mt-4">
+    <h2>Gestión de Proveedores</h2>
+    <form (ngSubmit)="guardarProveedor()">
+      <input type="hidden" [(ngModel)]="proveedorActual.id" name="id">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="proveedorActual.nombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" [(ngModel)]="proveedorActual.direccion" name="direccion" required>
+      </div>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+  
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+          <td>{{ proveedor.nombre }}</td>
+          <td>{{ proveedor.direccion }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editarProveedor(proveedor)">Editar</button>
+            <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

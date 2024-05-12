@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h2 class="text-center">Formulario de registro para Gestor Farmacéutico</h2>
+    <h4 class="text-center mb-4">Bienvenido</h4>
+  
+    <form (ngSubmit)="register()" #registrationForm="ngForm">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Nombres y Apellidos:</label>
+        <input type="text" class="form-control" id="fullName" [(ngModel)]="user.fullName" name="fullName" required pattern="[A-Za-z ]+">
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Usuario (DNI):</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required minlength="6">
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Repetir Contraseña:</label>
+        <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="user.confirmPassword" name="confirmPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!registrationForm.valid || user.password !== user.confirmPassword">Registrar</button>
+    </form>
+  </div>
+  
